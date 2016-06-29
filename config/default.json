@@ -1,0 +1,14 @@
+{
+    "port": 3000,
+    "services": {
+        "CLINICS_POSTCODE": {
+            "url": "http://data.gov.uk/data/api/service/health/clinics/partial_postcode"
+        },
+        "CLINICS_NAME": {
+            "url": "http://data.gov.uk/data/api/service/health/clinics/organisation_name"
+        },
+        "CLINICS_CITY": {
+            "url": "http://data.gov.uk/data/api/service/health/clinics"
+        }
+    }
+}
