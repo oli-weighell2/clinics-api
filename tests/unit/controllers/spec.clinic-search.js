@@ -15,7 +15,7 @@ describe('Clinic Search controller: ', function() {
         beforeEach(function () {
             req = {
                 params: {
-                    code: 'testCode'
+                    code: 'SE1%208RT'
                 }
             };
             res = {
@@ -26,11 +26,13 @@ describe('Clinic Search controller: ', function() {
             total = rawTestData.result.length;
             sinon.stub(Search.prototype, 'fetch').yields(null, testData);
             sinon.spy(Search.prototype, 'formatter');
+            sinon.spy(Search.prototype, 'filter');
         });
 
         afterEach(function () {
             Search.prototype.fetch.restore();
             Search.prototype.formatter.restore();
+            Search.prototype.filter.restore();
         });
 
         it('should use the Search model to fetch data', function() {
@@ -38,9 +40,10 @@ describe('Clinic Search controller: ', function() {
             Search.prototype.fetch.should.have.been.calledOnce;
         });
 
-        it('should run each result through a formatter', function() {
+        it('should filter results by postcode, and run matches through a formatter', function() {
             controller.postcode(req, res);
-            Search.prototype.formatter.callCount.should.equal(total);
+            Search.prototype.filter.should.have.been.calledOnce;
+            Search.prototype.formatter.calledTwice; // 2 clinics in the mock data match res.params.code
         });
 
         it('should respond with search results (in JSON)', function() {
