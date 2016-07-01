@@ -33,6 +33,17 @@ To run tests:
 ```
 $> npm run test
 ```
+## Dev notes
+Models:
+- Search - handles searching and processing of data from backend services
+- Clinic Search - extends search with handling specific to clinic data
+- Clinic - models clinic data
+  
+Controllers:
+- Clinic Search - handles requests to each of the clinic endpoints
+  
+Lib:
+- Utils - general utility functions
 
 ## Resources
 
