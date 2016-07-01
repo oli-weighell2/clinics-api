@@ -24,21 +24,21 @@ class ServiceChecks {
     }
 
     init (cb) {
-        let requests = this.options.map(service => rp(service));
+        const requests = this.options.map(service => rp(service));
 
         Bluebird.all(requests)
             .spread(function () {
                 cb(null, arguments);
             })
-            .catch(function (err) {
+            .catch(function(err) {
                 cb(err);
             });
     }
 
     format (responses) {
         return _.map(responses, (response) => {
-            var pass = this.isHealthy(response);
-            var service = url.format(response.request.uri);
+            let pass = this.isHealthy(response);
+            let service = url.format(response.request.uri);
             return {
                 service,
                 isHealthy: pass,

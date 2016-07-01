@@ -11,7 +11,7 @@ class Clinic {
     }
 
     formatAddress () {
-        var addressElements = [
+        let addressElements = [
             this.raw.address1,
             this.raw.address2,
             this.raw.address3,
