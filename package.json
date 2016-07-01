@@ -7,6 +7,7 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "bluebird": "^3.4.1",
     "body-parser": "~1.13.2",
     "debug": "~2.2.0",
     "express": "~4.13.1",
@@ -15,7 +16,8 @@
     "morgan": "~1.6.1",
     "npm": "^3.9.6",
     "request-promise": "^3.0.0",
-    "underscore": "1.x.x"
+    "underscore": "1.x.x",
+    "winston": "2.x.x"
   },
   "devDependencies": {
     "chai": "^3.3.0",

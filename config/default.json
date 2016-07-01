@@ -1,14 +1,19 @@
 {
     "port": 3000,
+    "app-log": "./app.log",
+    "error-log": "./error.log",
     "services": {
         "CLINICS_POSTCODE": {
-            "url": "http://data.gov.uk/data/api/service/health/clinics/partial_postcode"
+            "url": "http://data.gov.uk/data/api/service/health/clinics/partial_postcode",
+            "mock": "http://localhost:3000/stub/postcode-search.json"
         },
         "CLINICS_NAME": {
-            "url": "http://data.gov.uk/data/api/service/health/clinics/organisation_name"
+            "url": "http://data.gov.uk/data/api/service/health/clinics/organisation_name",
+            "mock": "http://localhost:3000/stub/name-search.json"
         },
         "CLINICS_CITY": {
-            "url": "http://data.gov.uk/data/api/service/health/clinics"
+            "url": "http://data.gov.uk/data/api/service/health/clinics",
+            "mock": "http://localhost:3000/stub/city-search.json"
         }
     }
 }
