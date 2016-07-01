@@ -1,8 +1,9 @@
 # CLINICS API
-...
+Provides a simple API for accessing data on UK clinics.
 
 ## Prerequisites
-[Node](http://nodejs.org/) v6.
+[Node](http://nodejs.org/) v6.  
+[npm](https://www.npmjs.com/) v3.
 
 ## Installation
 ```
@@ -13,18 +14,35 @@ $> npm install
 ```
 $> npm start
 ```
-Then open http://localhost:3000/ in a browser.
+Then go to one of the endpoints (via browser or GET request): 
+- http://localhost:3000/clinics/postcode/[POSTCODE]
+- http://localhost:3000/clinics/name/[TYPE_OF_CLINIC]
+- http://localhost:3000/clinics/city/[CITY]
 
 ## Unit tests
 
-To run the tests:
+To run tests:
 ```
 $> npm run test
 ```
 
 ## Resources
 
-Clinics API uses:
-- Express as a web application framework
+The app uses:
+- Express as a web app framework
+- Request-promise as an http request handler
+- Sinon, Mocha, Chai for unit testing
+- Winston, Morgan for logging
+- Underscore as a utility library
 
-## Todo
+## Todos
+
+- finish logger
+- improve error handling
+- add API user docs
+- replace underscore functions with custom alternatives, eg countBy
+- add debug
+- healthchecks: improve error capture
+- unit tests:
+  - models/search - finish fetch method tests by resolving issue with request-promise and sinon
+  - controllers/clinic-search - finish tests to cover handling of endpoint urls
