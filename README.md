@@ -39,7 +39,8 @@ The app uses:
 
 - finish logger
 - improve error handling
-- add API user docs
+- improve input validation
+- add API docs
 - replace underscore functions with custom alternatives, eg countBy
 - add debug
 - healthchecks: improve error capture
