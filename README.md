@@ -6,6 +6,7 @@ Provides a simple API for accessing data on UK clinics.
 [npm](https://www.npmjs.com/) v3.
 
 ## Installation
+From the app root run:
 ```
 $> npm install
 ```
@@ -18,6 +19,13 @@ Then go to one of the endpoints (via browser or GET request):
 - http://localhost:3000/clinics/postcode/[POSTCODE]
 - http://localhost:3000/clinics/name/[TYPE_OF_CLINIC]
 - http://localhost:3000/clinics/city/[CITY]
+
+## Config
+Default config can be found in /config/default.json.  
+  
+This includes:
+- location of service urls
+- location of app and error logs
 
 ## Unit tests
 
