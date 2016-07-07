@@ -9,7 +9,8 @@ describe('Search model: ', function () {
 
     beforeEach(function () {
         endpoint = config.services.CLINICS_POSTCODE.mock;
-        search = new Search(endpoint);
+        search = new Search();
+        search.options = endpoint;
     });
 
     it('exports a constructor', function () {
@@ -21,10 +22,6 @@ describe('Search model: ', function () {
         search.process.should.be.a('function');
         search.count.should.be.a('function');
         search.group.should.be.a('function');
-    });
-
-    it('sets an options property', function () {
-        search.options.should.equal(endpoint);
     });
 
     describe('Process', function () {
@@ -136,14 +133,14 @@ describe('Search model: ', function () {
         /*
         it('should callback', function () {
             endpoint = 'http://localhost:3000/stub/postcode-search.json';
-            search = new Search(endpoint);
+            search.options = endpoint;
             search.fetch(cb);
             cb.should.have.been.calledOnce;
         });
 
         it('returns error if the requested service is unavailable', function() {
             endpoint = 'http://localhost:3000/missingapi';
-            search = new Search(endpoint);
+            search.options = endpoint;
             search.fetch(function(err, response) {
                 expect(err).to.not.be.undefined;
             });

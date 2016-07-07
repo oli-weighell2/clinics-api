@@ -3,29 +3,26 @@ var _ = require('underscore');
 
 class Search {
 
-    constructor (options) {
-        if (!options) {
-            throw new Error('Options must be defined');
-        }
-        this.options = options;
+    get options () {
+        return this.reqOptions;
     }
 
-    get reqOptions () {
-        return this.options;
-    }
-
-    set newOptions (value) {
-        this.options = value;
+    set options (value) {
+        this.reqOptions = value;
     };
 
     fetch (cb) {
-        rp(this.options)
-            .then(function(data) {
-                cb(null, data);
-            })
-            .catch(function(err) {
-                cb(err);
-            });
+        if (!this.reqOptions) {
+            throw new Error('Options must be defined');
+        } else {
+            rp(this.options)
+                .then(function(data) {
+                    cb(null, data);
+                })
+                .catch(function(err) {
+                    cb(err);
+                });
+        }
     }
 
     process (data) {
